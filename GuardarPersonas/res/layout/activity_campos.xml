@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.guardarpersonas.Campos" >
+	<LinearLayout android:id="@+id/botonesCampos"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	    
+	    <Button android:id="@+id/guardarCampos"
+	        android:text="@string/guardar"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"/>
+	    <Button android:id="@+id/cancelCampos"
+	        android:text="@string/cancel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"/>
+	    
+	</LinearLayout>
+    <LinearLayout 
+        android:id="@+id/campos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:orientation="horizontal">
+	        
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvNombreCampos"
+                android:text="@string/tvNombre"/>
+            <EditText android:id="@+id/nombreCampos"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/etNombre"/>
+            
+        </LinearLayout>
+        <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:orientation="horizontal">
+	        
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvApellidoCampos"
+                android:text="@string/tvApellido"/>
+            <EditText android:id="@+id/apellidoCampos"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/etApellido"/>
+            
+        </LinearLayout>
+        <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:orientation="horizontal">
+	        
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTelCampos"
+                android:text="@string/tvTel"/>
+            <EditText android:id="@+id/telCampos"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/etTel"/>
+            
+        </LinearLayout>
+        <LinearLayout 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:orientation="horizontal">
+	        
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvObsCampos"
+                android:text="@string/tvObs"/>
+            <EditText android:id="@+id/obsCampos"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/etObs"/>
+        </LinearLayout>
+    </LinearLayout>
+	<Spinner android:id="@+id/spinner"
+	    android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"/>
+</LinearLayout>

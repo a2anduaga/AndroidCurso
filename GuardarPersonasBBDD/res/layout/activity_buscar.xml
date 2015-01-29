@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.guardarpersonas.Buscar" >
+
+    <LinearLayout android:orientation="vertical"
+        android:id="@+id/buscarLL"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content">
+
+        
+        <Button android:id="@+id/volver"
+            android:text="@string/volver"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout android:orientation="horizontal"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content">
+	    <RadioGroup android:id="@+id/radioGr"
+				android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"
+	        	android:orientation="vertical">
+		        
+		            <RadioButton android:id="@+id/nombreRadio"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"/>
+		            
+		            <RadioButton android:id="@+id/apellRadio"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"/>
+		       
+		            <RadioButton android:id="@+id/telRadio"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"/>
+		        
+		            <RadioButton android:id="@+id/obsRadio"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"/>
+		            <RadioButton android:id="@+id/grRadio"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"/>
+		     
+		   </RadioGroup>
+		   <LinearLayout android:orientation="vertical"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content">
+		            <EditText android:id="@+id/buscarNombre"
+		                android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+		                android:hint="@string/tvNombre"/>
+		            <EditText android:id="@+id/buscarApellido"
+		                android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+		                android:hint="@string/tvApellido"/>
+		            <EditText android:id="@+id/buscarTel"
+		                android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+		                android:hint="@string/tvTel"/>
+		            <EditText android:id="@+id/buscarObs"
+		                android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+		                android:hint="@string/tvObs"/>
+		            <Spinner android:id="@+id/spinner1"
+        				android:layout_width="fill_parent"
+    					android:layout_height="wrap_content"/>
+	    	</LinearLayout>
+	    </LinearLayout>
+	    
+		   <LinearLayout android:orientation="horizontal"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content">
+		            <Button android:id="@+id/aceptar"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:enabled="false"
+		                android:text="@string/aceptar"/>
+		            <Button android:id="@+id/buscar"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/buscar"/>
+		   
+	    </LinearLayout>    
+	    
+    </LinearLayout>
+    
+		<LinearLayout android:orientation="vertical"
+		    android:id="@+id/botonesLL"
+		    android:layout_height="match_parent"
+		    android:layout_width="wrap_content">
+		    
+		</LinearLayout>
+	
+</LinearLayout>

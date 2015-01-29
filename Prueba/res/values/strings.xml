@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Prueba</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="nombre">Ales</string>
+    <string name="edad">28</string>
+    <string name="tel">653</string>
+    <string name="dir">hjkw 12</string>
+    <string name="suma">0</string>
+    
+
+</resources>

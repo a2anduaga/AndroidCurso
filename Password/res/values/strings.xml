@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Password</string>
+    <string name="pass">Introduzca contraseña</string>
+    <string name="bt">Aceptar</string>
+    <string name="mensaje">Contraseña correcta!</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
