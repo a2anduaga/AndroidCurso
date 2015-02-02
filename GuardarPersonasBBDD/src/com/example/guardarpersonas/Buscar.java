@@ -1,9 +1,14 @@
 package com.example.guardarpersonas;
 
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,7 +25,7 @@ import android.widget.Spinner;
 
 public class Buscar extends Activity implements OnClickListener{
 	
-	private Button btVolver, btAceptar, btBuscar;
+	private Button btVolver, btAceptar, btBuscar, btVolcar;
 	private EditText etNombre, etApel, etTel, etObs;
 	private RadioButton rN, rA, rT, rO, rGr;
 	private RadioGroup rg;
@@ -31,6 +36,7 @@ public class Buscar extends Activity implements OnClickListener{
 	private String selec;
 	private Bbdd miBd;
 	ArrayList<String[]> arrayPersonasBuscar = new ArrayList<String[]>();
+	ArrayList<String[]> arrayPersonasOrdenadas = new ArrayList<String[]>();
 	ArrayList<Button> arrayBotonesBuscar = new ArrayList<Button>();
 	
 	@Override
@@ -44,6 +50,8 @@ public class Buscar extends Activity implements OnClickListener{
 		spinner.setAdapter(adapter);
 		ll=(LinearLayout)findViewById(R.id.botonesLL);
 		btVolver=(Button)findViewById(R.id.volver);
+		btVolcar=(Button)findViewById(R.id.volcar);
+		btVolcar.setOnClickListener(this);
 		btVolver.setOnClickListener(this);
 		btAceptar=(Button)findViewById(R.id.aceptar);
 		btAceptar.setOnClickListener(this);
@@ -154,6 +162,70 @@ public class Buscar extends Activity implements OnClickListener{
 				break;
 				default: break;
 			}
+		}
+		else if (v.getId()==R.id.volcar)
+		{
+			Intent i = getIntent();
+			switch(checkedRadioButtonId)
+			{
+				case R.id.nombreRadio:
+					if (rN.isChecked())
+					{
+						arrayPersonasOrdenadas=miBd.selectAllOrdered("NOMBRE");
+					}
+				break;
+				case R.id.apellRadio:
+					if (rA.isChecked())
+					{
+						arrayPersonasOrdenadas=miBd.selectAllOrdered("APELLIDO");
+					}
+				break;
+				case R.id.telRadio:
+					if (rT.isChecked())
+					{
+						arrayPersonasOrdenadas=miBd.selectAllOrdered("TELEFONO");
+					}
+				break;
+				case R.id.obsRadio:
+					if (rO.isChecked())
+					{
+						arrayPersonasOrdenadas=miBd.selectAllOrdered("OBSERVACIONES");
+					}
+				break;
+				case R.id.grRadio:
+					if (rGr.isChecked())
+					{
+						arrayPersonasOrdenadas=miBd.selectAllOrdered("GRUPO");
+					}
+				break;
+				default:arrayPersonasOrdenadas=miBd.selectAllOrdered("_ID"); 
+						break;
+			}
+			try {
+				FileOutputStream fichero = openFileOutput("fichero.txt", Context.MODE_PRIVATE);
+				DataOutputStream dos = new DataOutputStream(fichero);
+				Iterator<String[]> it = arrayPersonasOrdenadas.iterator();	
+				while(it.hasNext())
+				{	
+					String[] obj = it.next();
+					for (int j=0; j<obj.length; j++)
+					{
+						String cadenaOutput = new String(obj[j]);
+						dos.writeBytes(cadenaOutput + "\t");
+					}
+					dos.writeBytes("\r\n");
+				}
+				dos.close();
+				fichero.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Intent ver = new Intent(this, TablaContactos.class);
+			startActivity(ver);
 		}
 	}
 

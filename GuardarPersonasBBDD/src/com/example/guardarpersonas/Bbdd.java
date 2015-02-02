@@ -318,6 +318,31 @@ public class Bbdd extends SQLiteOpenHelper{
 		}
 		return personas;
 	}
+	public ArrayList<String[]> selectAllOrdered(String campo)
+	{
+		ArrayList<String[]> personas = new ArrayList<String[]>();
+		String[] person = new String[6];
+		SQLiteDatabase db = getReadableDatabase();
+		if(db!=null){
+			Cursor c = db.rawQuery("select * from PERSONA order by "+campo, null);
+			if (c.moveToFirst()) 
+			{               
+			    do {
+				    person[0] = c.getString(c.getColumnIndex("_ID"));
+				    person[1] = c.getString(c.getColumnIndex("NOMBRE"));
+				    person[2] = c.getString(c.getColumnIndex("APELLIDO"));
+				    person[3] = c.getString(c.getColumnIndex("TELEFONO"));
+				    person[4] = c.getString(c.getColumnIndex("OBSERVACIONES"));
+				    person[5] = c.getString(c.getColumnIndex("GRUPO"));
+				    personas.add(person);
+				    person = new String[6];
+				} while (c.moveToNext());
+			    c.close();
+			}
+			db.close();
+		}
+		return personas;
+	}
 	public void delete(){
 		
 		SQLiteDatabase db = getWritableDatabase();

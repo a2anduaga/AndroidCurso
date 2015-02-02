@@ -4,6 +4,7 @@
     <string name="app_name">GuardarPersonas</string>
     <string name="nuevo">New</string>
     <string name="guardar">Save</string>
+    <string name="volcar">Volcar</string>
     <string name="cancel">Cancel</string>
     <string name="borrar">Delete</string>
     <string name="buscar">Buscar</string>
@@ -25,7 +26,8 @@
     <string name="title_activity_campos">Campos</string>
     <string name="title_activity_buscar">Buscar</string>
     <string name="aceptar">Aceptar</string>
-	<string-array name="grupoSpinner">
+
+    <string-array name="grupoSpinner">
         <item>Mercury</item>
         <item>Venus</item>
         <item>Earth</item>
@@ -35,4 +37,8 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
+
+    <string name="title_activity_tabla_contactos">TablaContactos</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>

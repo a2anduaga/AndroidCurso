@@ -158,7 +158,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	}
 	protected void onActivityResult(int id, int result, Intent data)
 	{
-		if (result==RESULT_OK)
+		if (result==RESULT_OK) 
 		{
 			if(data.getExtras().getString("new").equals("si"))
 			{
