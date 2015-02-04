@@ -3,6 +3,10 @@
 
     <string name="app_name">ListView</string>
     <string name="anadir">Añadir</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="texto">Borrar elemento</string>
+    <string name="mensaje">Estas seguro de que quieres borrar el elemento?</string>
     <string name="action_settings">Settings</string>
 
 </resources>

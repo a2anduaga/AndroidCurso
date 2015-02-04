@@ -3,7 +3,9 @@ package com.example.listview;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,9 +60,24 @@ public class MainActivity extends ListActivity {
 		listaArray.add("Nuevo");
 		adaptador.notifyDataSetChanged();
 	}
-	protected void onListItemClick(ListView l, View v, int position, long id)
+	protected void onListItemClick(ListView l, View v,final int position, long id)
 	{
-		listaArray.remove(position);
-		adaptador.notifyDataSetChanged();
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(R.string.texto);
+		builder.setMessage(R.string.mensaje);
+		builder.setPositiveButton(R.string.aceptar, new DialogInterface.OnClickListener() {
+	           public void onClick(DialogInterface dialog, int id) {
+					listaArray.remove(position);
+					adaptador.notifyDataSetChanged();
+	           }
+	       });
+		builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+	           public void onClick(DialogInterface dialog, int id) {
+	               // No hacer nada
+	           }
+	       });
+		
+		AlertDialog dialog = builder.create();
+		dialog.show();
 	}
 }
