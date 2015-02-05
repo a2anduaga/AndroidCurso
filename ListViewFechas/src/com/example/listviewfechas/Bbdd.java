@@ -63,17 +63,12 @@ public class Bbdd extends SQLiteOpenHelper{
 	
 	public void borrarEntrada(int posicion){
 		
-		int i=1, id=0;
+		int id=0;
 		SQLiteDatabase dbRead = getReadableDatabase();
 		Cursor c = dbRead.rawQuery("select * from entrada", null);
 		if (c.getCount() > 0) 
 		{
-			c.moveToFirst();
-			while (i<posicion)
-			{
-			    i++;
-			    c.moveToNext();
-			}
+			c.moveToPosition(posicion);
 			id = c.getInt(c.getColumnIndex("_ID"));
 		}
 		c.close();

@@ -108,7 +108,7 @@ public class MainActivity extends ListActivity implements OnClickListener{
 	{
 		listaArray.remove(position);
 		adaptador.notifyDataSetChanged();
-		miBd.borrarEntrada(position+1);
+		miBd.borrarEntrada(position);
 
 	}
 }
