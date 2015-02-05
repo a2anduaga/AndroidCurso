@@ -61,8 +61,23 @@ public class Bbdd extends SQLiteOpenHelper{
 		return id;
 	}
 	
-	public void borrarEntrada(int id){
+	public void borrarEntrada(int posicion){
 		
+		int i=1, id=0;
+		SQLiteDatabase dbRead = getReadableDatabase();
+		Cursor c = dbRead.rawQuery("select * from entrada", null);
+		if (c.getCount() > 0) 
+		{
+			c.moveToFirst();
+			while (i<posicion)
+			{
+			    i++;
+			    c.moveToNext();
+			}
+			id = c.getInt(c.getColumnIndex("_ID"));
+		}
+		c.close();
+		dbRead.close();
 		SQLiteDatabase db = getWritableDatabase();
 		if(db!=null){
 			db.execSQL(sqlDelete + id);

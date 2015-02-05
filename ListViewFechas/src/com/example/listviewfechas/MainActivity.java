@@ -106,9 +106,9 @@ public class MainActivity extends ListActivity implements OnClickListener{
 	}
 	protected void onListItemClick(ListView l, View v,final int position, long id)
 	{
-		System.out.println(position);
-//		listaArray.remove(position);
-//		adaptador.notifyDataSetChanged();
+		listaArray.remove(position);
+		adaptador.notifyDataSetChanged();
+		miBd.borrarEntrada(position+1);
 
 	}
 }
