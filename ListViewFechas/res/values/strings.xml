@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">ListViewFechas</string>
-    <string name="aceptar">Ok</string>
+    <string name="aceptar">OK</string>
     <string name="et">Introduzca asunto:</string>
     <string name="action_settings">Settings</string>
     <string-array name="mes">

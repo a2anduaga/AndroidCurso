@@ -1,6 +1,7 @@
 package com.example.listviewfechas;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import android.app.ListActivity;
@@ -25,6 +26,8 @@ public class MainActivity extends ListActivity implements OnClickListener{
 	private ArrayList<String> arrayAño = new ArrayList<String>();
 	private List<String> listaArray = null;
 	private ArrayAdapter<String> adaptador = null;
+	private Bbdd miBd;
+	private ArrayList<String[]> entradas = new ArrayList<String[]>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,15 @@ public class MainActivity extends ListActivity implements OnClickListener{
 		ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayAño);
 		adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		año.setAdapter(adapter3);
+		miBd = new Bbdd(this, "Entradas", null, 1);
+		entradas=miBd.selectAll();
+		Iterator<String[]> it = entradas.iterator();	
+		while(it.hasNext())
+		{	
+			String[] obj = it.next();
+			listaArray.add(obj[1]+"-"+obj[2]+"-"+obj[3]+"\r\n"+obj[4]);			
+		}
+		
 	}
 
 	@Override
@@ -85,6 +97,7 @@ public class MainActivity extends ListActivity implements OnClickListener{
 		if (v.getId()==R.id.aceptar)
 		{
 			texto=dia.getSelectedItem().toString()+"-"+mes.getSelectedItem().toString()+"-"+año.getSelectedItem().toString()+"\r\n"+et.getText().toString();
+			miBd.insertarEntrada(dia.getSelectedItem().toString(), mes.getSelectedItem().toString(), año.getSelectedItem().toString(), et.getText().toString());
 			listaArray.add(texto);
 			adaptador.notifyDataSetChanged();
 			et.setText("");
@@ -93,7 +106,9 @@ public class MainActivity extends ListActivity implements OnClickListener{
 	}
 	protected void onListItemClick(ListView l, View v,final int position, long id)
 	{
-		listaArray.remove(position);
-		adaptador.notifyDataSetChanged();
+		System.out.println(position);
+//		listaArray.remove(position);
+//		adaptador.notifyDataSetChanged();
+
 	}
 }
