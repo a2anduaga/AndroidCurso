@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.guardarpersonas.Borrar" >
+	<LinearLayout android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        
+        <Button android:id="@+id/selectAll"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/selectAll"/>
+    	<Button android:id="@+id/aceptarBorrar"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/texto"/>
+    	<Button android:id="@+id/vuelta"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/volver"/>
+	</LinearLayout>
+	<ListView android:id="@+id/listView"
+ 	    android:layout_width="fill_parent"
+ 	    android:layout_height="wrap_content"
+ 	    android:drawSelectorOnTop="false"/>   
+</LinearLayout>
