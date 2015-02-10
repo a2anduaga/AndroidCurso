@@ -111,6 +111,9 @@ public class Borrar extends Activity implements OnClickListener{
 		}
 		if (v.getId()==R.id.selectAll)
 		{
+			// tambien podria hacerlo con la variable de tipo boton "todos"
+			// if (todos.getText().equals("Nada"))
+			// y borrar la linea :' Button b = (Button)v; '
 			Button b = (Button)v;
 			int size = lista.getChildCount();
 			if (b.getText().equals("Nada"))
