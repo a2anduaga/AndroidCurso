@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,10 +21,11 @@ public class Borrar extends Activity implements OnClickListener{
 	
 	private Bbdd mibd;
 	private Button todos, borrar, volver;
-	private CheckBox cb;
 	private ListView lista = null;
 	private ArrayList<String[]> entradas = new ArrayList<String[]>();
 	private ArrayList<Lista_entrada> datos = new ArrayList<Lista_entrada>();
+	private Intent i;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class Borrar extends Activity implements OnClickListener{
 		volver.setOnClickListener(this);
 		todos.setOnClickListener(this);
 		borrar.setOnClickListener(this);
+		i=getIntent();
 		mibd = new Bbdd(this, "Personas", null, 1);
 		entradas=mibd.selectAll();
 		Iterator<String[]> it = entradas.iterator();	
@@ -42,7 +46,7 @@ public class Borrar extends Activity implements OnClickListener{
 		while(it.hasNext())
 		{	
 			String[] obj = it.next();
-			datos.add(new Lista_entrada(R.drawable.ic_launcher, obj[1], obj[2]));			
+			datos.add(new Lista_entrada(R.drawable.ic_launcher, obj[1], obj[2], obj[0]));			
 		}
 		lista = (ListView)findViewById(R.id.listView);
 		adaptador();
@@ -70,19 +74,64 @@ public class Borrar extends Activity implements OnClickListener{
 
 		if (v.getId()==R.id.vuelta)
 		{
+			setResult(2, i);
 			finish();
 		}
 		if (v.getId()==R.id.aceptarBorrar)
 		{
-			
-//			datos.remove(posicion);
-//			((Lista_adaptador)lista.getAdapter()).notifyDataSetChanged();
-//			mibd.borrarEntrada(posicion);
+			int size = lista.getChildCount();
+			for (int i=0; i<size;i++)
+			{
+				LinearLayout layout = (LinearLayout) lista.getChildAt(i);
+				CheckBox check = (CheckBox) layout.getChildAt(0);
+				if (check.isChecked())
+				{
+					LinearLayout layout2 = (LinearLayout) layout.getChildAt(2);
+					TextView tv = (TextView) layout2.getChildAt(2);
+					mibd.borrarPersona(Integer.parseInt(tv.getText().toString()));
+				}
+			}
+			entradas=mibd.selectAll();
+			datos.clear();
+			Iterator<String[]> it = entradas.iterator();	
+			// Por cada row de la tabla, añade objeto de tipo "Lista_entrada" al arrayList "datos"
+			while(it.hasNext())
+			{	
+				String[] obj = it.next();
+				datos.add(new Lista_entrada(R.drawable.ic_launcher, obj[1], obj[2], obj[0]));			
+			}
+			((Lista_adaptador)lista.getAdapter()).notifyDataSetChanged();
+			// desmarcar todos los checkbox 
+			for (int i=0; i<size;i++)
+			{
+				LinearLayout layout = (LinearLayout) lista.getChildAt(i);
+				CheckBox check = (CheckBox) layout.getChildAt(0);
+				check.setChecked(false);
+			}
 		}
 		if (v.getId()==R.id.selectAll)
 		{
-			// irakurri:
-			//http://venomvendor.blogspot.com.es/2013/12/custom-listview-with-checkbox-header.html
+			Button b = (Button)v;
+			int size = lista.getChildCount();
+			if (b.getText().equals("Nada"))
+			{
+				for (int i=0; i<size;i++)
+				{
+					LinearLayout layout = (LinearLayout) lista.getChildAt(i);
+					CheckBox check = (CheckBox) layout.getChildAt(0);
+					check.setChecked(false);
+					b.setText("Todos");
+				}
+			}
+			else{
+				for (int i=0; i<size;i++)
+				{
+					LinearLayout layout = (LinearLayout) lista.getChildAt(i);
+					CheckBox check = (CheckBox) layout.getChildAt(0);
+					check.setChecked(true);
+					b.setText("Nada");
+				}
+			}
 		}
 		
 	}
@@ -104,6 +153,11 @@ public class Borrar extends Activity implements OnClickListener{
 					if (apellido!=null)
 					{
 						apellido.setText(((Lista_entrada)entrada).getApellido());
+					}
+					TextView id = (TextView)view.findViewById(R.id.tvId);
+					if (id!=null)
+					{
+						id.setText(((Lista_entrada)entrada).getId());
 					}
 					ImageView imagen = (ImageView)view.findViewById(R.id.imagen);
 					if (imagen!=null)

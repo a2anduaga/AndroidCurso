@@ -89,7 +89,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		else if (v.getId()==R.id.borrar)
 		{
 			Intent i = new Intent(this, Borrar.class);
-			startActivity(i);
+			startActivityForResult(i,3);
 			
 		}
 		else if (v.getId()==R.id.editar)
@@ -188,6 +188,25 @@ public class MainActivity extends Activity implements OnClickListener{
 			grupo.setEnabled(false);
 			btBorrar.setEnabled(true);
 			btEditar.setEnabled(true);
+		}
+		else if (result==2)
+		{
+			arrayBotones.clear();
+			personas.clear();
+			ll.removeAllViews();
+			cargarBotones();
+			btBorrar.setEnabled(true);
+			btEditar.setEnabled(false);
+			nombre.setText("");
+			apellido.setText("");
+			tel.setText("");
+			obs.setText("");
+			grupo.setText("");
+			nombre.setEnabled(false);
+			apellido.setEnabled(false);
+			tel.setEnabled(false);
+			obs.setEnabled(false);
+			grupo.setEnabled(false);
 		}
 	
 	}

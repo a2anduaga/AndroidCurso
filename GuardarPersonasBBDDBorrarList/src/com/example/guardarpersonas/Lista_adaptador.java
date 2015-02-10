@@ -14,6 +14,7 @@ public abstract class Lista_adaptador extends BaseAdapter{
 	private int R_layout_IdView;
 	private Context contexto;
 	
+	
 	public Lista_adaptador(Context contexto, int R_layout_IdView, ArrayList<?> entradas)
 	{
 		super();
@@ -21,7 +22,7 @@ public abstract class Lista_adaptador extends BaseAdapter{
 		this.R_layout_IdView=R_layout_IdView;
 		this.entradas=entradas;
 	}
-	public View getView(int posicion, View view, ViewGroup pariente)
+	public View getView( int posicion, View view, ViewGroup pariente)
 	{
 		if (view==null)
 		{
@@ -29,6 +30,7 @@ public abstract class Lista_adaptador extends BaseAdapter{
 			view = vi.inflate(R_layout_IdView, null);
 		}
 		onEntrada(entradas.get(posicion), view);
+		
 		return view;
 	}
 	public int getCount()
@@ -44,4 +46,6 @@ public abstract class Lista_adaptador extends BaseAdapter{
 		return posicion;
 	}
 	public abstract void onEntrada(Object entrada, View view);
+	
+	
 }
