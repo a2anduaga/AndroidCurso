@@ -44,8 +44,17 @@ public class MainActivity extends Activity implements OnClickListener{
 		// Por cada row de la tabla, añade objeto de tipo "Lista_entrada" al arrayList "datos"
 		while(it.hasNext())
 		{	
+			int imagen=0;
 			String[] obj = it.next();
-			datos.add(new Lista_entrada(R.drawable.ic_launcher, obj[1]+"-"+obj[2]+"-"+obj[3], obj[4]));			
+			if (Integer.parseInt(obj[3])<1950)
+			{
+				imagen = R.drawable.image;
+			}
+			else
+			{
+				imagen = R.drawable.image2;
+			}
+			datos.add(new Lista_entrada(imagen, obj[1]+"-"+obj[2]+"-"+obj[3], obj[4]));			
 		}
 		lista = (ListView)findViewById(R.id.listView);
 		
@@ -59,7 +68,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		{
 			arrayDia.add(String.valueOf(i));
 		}
-		for (int j=2000;j<=2100;j++)
+		for (int j=1900;j<=2000;j++)
 		{
 			arrayAño.add(String.valueOf(j));
 		}
@@ -116,7 +125,16 @@ public class MainActivity extends Activity implements OnClickListener{
 		{
 			// Insertar a la Base de Datos, añadir a arrayList y actualizar adpatador de la lista
 			miBd.insertarEntrada(dia.getSelectedItem().toString(), mes.getSelectedItem().toString(), año.getSelectedItem().toString(), et.getText().toString());
-			datos.add(new Lista_entrada(R.drawable.ic_launcher, dia.getSelectedItem().toString()+"-"+mes.getSelectedItem().toString()+"-"+año.getSelectedItem().toString(), et.getText().toString()));
+			int imagen=0;
+			if (Integer.parseInt(año.getSelectedItem().toString())<1950)
+			{
+				imagen = R.drawable.image;
+			}
+			else
+			{
+				imagen = R.drawable.image2;
+			}
+			datos.add(new Lista_entrada(imagen, dia.getSelectedItem().toString()+"-"+mes.getSelectedItem().toString()+"-"+año.getSelectedItem().toString(), et.getText().toString()));
 			((Lista_adaptador)lista.getAdapter()).notifyDataSetChanged();
 			et.setText("");
 		}
