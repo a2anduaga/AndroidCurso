@@ -19,4 +19,7 @@
 	<style name="botonPulsado">
 	    <item name="android:background">@drawable/boton_pressed</item>
 	</style>
+	<style name="fondoColor">
+	    <item name="android:background">@drawable/fondo_layout</item>
+	</style>
 </resources>
