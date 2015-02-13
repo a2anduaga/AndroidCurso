@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener{
 	
@@ -28,6 +30,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	private ArrayList<String> arrayAño = new ArrayList<String>();
 	private ListView lista = null;
 	private Bbdd miBd;
+	private Context contexto=this;
 	// "entradas" es lo que recibes desde la Base de Datos
 	private ArrayList<String[]> entradas = new ArrayList<String[]>();
 	// Se volcaran las "entradas" en el ArrayList "datos" de tipo 'Lista_entrada'
@@ -95,6 +98,8 @@ public class MainActivity extends Activity implements OnClickListener{
 				datos.remove(posicion);
 				((Lista_adaptador)lista.getAdapter()).notifyDataSetChanged();
 				miBd.borrarEntrada(posicion);
+				CustomToast miToast = new CustomToast(contexto, Toast.LENGTH_LONG);
+				miToast.show("Item borrado!");
 			}
 		});
 	}
