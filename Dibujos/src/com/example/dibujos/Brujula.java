@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.view.View;
 
 public class Brujula extends View{
@@ -56,5 +57,25 @@ public class Brujula extends View{
 		canvas.drawPoint(canvas.getWidth()/2, 554, punto);
 		canvas.drawPoint(50, canvas.getHeight()/2, punto);
 		canvas.drawPoint(430, canvas.getHeight()/2, punto);
+		
+		Paint marcas = new Paint();
+		marcas.setColor(Color.RED);
+		marcas.setStyle(Paint.Style.STROKE);
+		marcas.setStrokeWidth(4);
+		canvas.drawPoint((float) (canvas.getWidth()/2-Math.cos(Math.PI/8)*canvas.getWidth()/6), (float) (canvas.getHeight()/2-Math.sin(Math.PI/8)*canvas.getWidth()/6), marcas);
+		canvas.drawPoint((float) (canvas.getWidth()/2+Math.cos(Math.PI/8)*canvas.getWidth()/6), (float) (canvas.getHeight()/2-Math.sin(Math.PI/8)*canvas.getWidth()/6), marcas);
+		canvas.drawPoint((float) (canvas.getWidth()/2-Math.cos(Math.PI/8)*canvas.getWidth()/6), (float) (canvas.getHeight()/2+Math.sin(Math.PI/8)*canvas.getWidth()/6), marcas);
+		canvas.drawPoint((float) (canvas.getWidth()/2+Math.cos(Math.PI/8)*canvas.getWidth()/6), (float) (canvas.getHeight()/2+Math.sin(Math.PI/8)*canvas.getWidth()/6), marcas);
+		canvas.drawPoint((float) (canvas.getWidth()/2-Math.cos(Math.PI/2.6)*canvas.getWidth()/6), (float) (canvas.getHeight()/2-Math.sin(Math.PI/2.6)*canvas.getWidth()/6), marcas);
+		canvas.drawPoint((float) (canvas.getWidth()/2+Math.cos(Math.PI/2.6)*canvas.getWidth()/6), (float) (canvas.getHeight()/2-Math.sin(Math.PI/2.6)*canvas.getWidth()/6), marcas);
+		canvas.drawPoint((float) (canvas.getWidth()/2-Math.cos(Math.PI/2.6)*canvas.getWidth()/6), (float) (canvas.getHeight()/2+Math.sin(Math.PI/2.6)*canvas.getWidth()/6), marcas);
+		canvas.drawPoint((float) (canvas.getWidth()/2+Math.cos(Math.PI/2.6)*canvas.getWidth()/6), (float) (canvas.getHeight()/2+Math.sin(Math.PI/2.6)*canvas.getWidth()/6), marcas);
+		
+		Paint texto = new Paint(Paint.ANTI_ALIAS_FLAG);
+		texto.setColor(Color.MAGENTA);
+		Typeface fuente = Typeface.create(Typeface.MONOSPACE, Typeface.BOLD);
+		texto.setTextSize(20);
+		texto.setTypeface(fuente);
+		canvas.drawText("PUNTOS CARDINALES", 150, 80, texto);
 	}
 }
