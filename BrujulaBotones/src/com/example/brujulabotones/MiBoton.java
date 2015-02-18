@@ -1,4 +1,4 @@
-package com.example.brujulaconbotones;
+package com.example.brujulabotones;
 
 import android.content.Context;
 import android.graphics.Canvas;

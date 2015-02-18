@@ -1,4 +1,4 @@
-package com.example.brujulaconbotones;
+package com.example.brujulabotones;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class Brujula extends View{
-	
+
 	public Brujula(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub

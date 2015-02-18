@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -16,5 +16,16 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
+	<style name="botonN">
+	    <item name="android:background">@drawable/boton_n</item>
+	</style>
+	<style name="botonS">
+	    <item name="android:background">@drawable/boton_s</item>
+	</style>
+	<style name="botonE">
+	    <item name="android:background">@drawable/boton_e</item>
+	</style>
+	<style name="botonO">
+	    <item name="android:background">@drawable/boton_o</item>
+	</style>
 </resources>

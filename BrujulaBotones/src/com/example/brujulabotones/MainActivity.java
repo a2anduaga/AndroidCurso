@@ -1,11 +1,13 @@
-package com.example.brujulaconbotones;
+package com.example.brujulabotones;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
-public class MainActivity extends Activity{
+public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +33,24 @@ public class MainActivity extends Activity{
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
+	public void norte(View v)
+	{
+		Toast toast = Toast.makeText(this, "Norte!!!!!!!", Toast.LENGTH_LONG);
+		toast.show();
+	}
+	public void sur(View v)
+	{
+		Toast toast = Toast.makeText(this, "sur!!!!!!!", Toast.LENGTH_LONG);
+		toast.show();
+	}
+	public void este(View v)
+	{
+		Toast toast = Toast.makeText(this, "este!!!!!!!", Toast.LENGTH_LONG);
+		toast.show();
+	}
+	public void oeste(View v)
+	{
+		Toast toast = Toast.makeText(this, "o este!!!!!!!", Toast.LENGTH_LONG);
+		toast.show();
+	}
 }
