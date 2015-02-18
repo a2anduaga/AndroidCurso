@@ -4,24 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.RelativeLayout;
 
-public class MainActivity extends Activity {
-	
-	private MiBoton norte;
-	private Brujula canvas;
-	private RelativeLayout rl;
-	
+public class MainActivity extends Activity{
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		rl=(RelativeLayout)findViewById(R.id.RelativeLayout1);
-		canvas=(Brujula)findViewById(R.id.lienzo);
-		norte=(MiBoton)findViewById(R.id.bt);
-		rl.addView(canvas);
-		rl.addView(norte);
 	}
 
 	@Override
@@ -42,4 +31,5 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 }

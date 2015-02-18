@@ -3,20 +3,36 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.brujulaconbotones.MainActivity" >
 
     <com.example.brujulaconbotones.Brujula
-        android:id="@+id/lienzo"
+        android:id="@+id/brujula"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <com.example.brujulaconbotones.MiBoton
-        android:id="@+id/bt"
+        android:id="@+id/btN"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:translationX="50dp"
+        android:translationY="50dp"/>
+    <com.example.brujulaconbotones.MiBoton
+        android:id="@+id/btS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:translationX="100dp"
+        android:translationY="50dp"/>
+    <com.example.brujulaconbotones.MiBoton
+        android:id="@+id/btE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:translationX="50dp"
+        android:translationY="150dp"/>
+    <com.example.brujulaconbotones.MiBoton
+        android:id="@+id/btO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:translationX="200dp"
+        android:translationY="250dp"/>
 
 </RelativeLayout>

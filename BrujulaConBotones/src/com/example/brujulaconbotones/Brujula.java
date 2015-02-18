@@ -1,20 +1,33 @@
 package com.example.brujulaconbotones;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.util.AttributeSet;
 import android.view.View;
 
 public class Brujula extends View{
 	
-	public Brujula(Context context) {
-		super(context);
+	public Brujula(Context context, AttributeSet attrs) {
+		super(context, attrs);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Brujula(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Brujula(Context context) {
+		super(context);
+	}
+
+	@SuppressLint("WrongCall")
 	protected void onDraw(Canvas canvas)
-	{
+	{	
 		canvas.drawColor(Color.BLACK);
 		
 		Paint crucetaExterior = new Paint();
@@ -32,20 +45,6 @@ public class Brujula extends View{
 		circulo.setStyle(Paint.Style.STROKE);
 		circulo.setStrokeWidth(2);
 		canvas.drawCircle(canvas.getWidth()/2, canvas.getHeight()/2, canvas.getWidth()/6, circulo);
-		
-		MiBoton norte = new MiBoton(getContext(),canvas.getWidth()/2,174,20,Color.WHITE);
-		
-		Paint sur = new Paint(Paint.ANTI_ALIAS_FLAG);
-		sur.setColor(Color.RED);
-		canvas.drawCircle(canvas.getWidth()/2, 554, 20, sur);
-		
-		Paint este = new Paint(Paint.ANTI_ALIAS_FLAG);
-		este.setColor(Color.YELLOW);
-		canvas.drawCircle(50, canvas.getHeight()/2, 20, este);
-		
-		Paint oeste = new Paint(Paint.ANTI_ALIAS_FLAG);
-		oeste.setColor(Color.BLUE);
-		canvas.drawCircle(430, canvas.getHeight()/2, 20, oeste);
 		
 		Paint punto = new Paint();
 		punto.setColor(Color.BLACK);
@@ -75,5 +74,6 @@ public class Brujula extends View{
 		texto.setTextSize(20);
 		texto.setTypeface(fuente);
 		canvas.drawText("PUNTOS CARDINALES", 150, 80, texto);
+		
 	}
 }
