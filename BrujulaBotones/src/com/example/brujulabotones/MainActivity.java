@@ -1,6 +1,8 @@
 package com.example.brujulabotones;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,7 +37,7 @@ public class MainActivity extends Activity {
 	}
 	public void norte(View v)
 	{
-		Toast toast = Toast.makeText(this, "Norte!!!!!!!", Toast.LENGTH_LONG);
+		Toast toast = Toast.makeText(this, "norte!!!!!!!", Toast.LENGTH_LONG);
 		toast.show();
 	}
 	public void sur(View v)

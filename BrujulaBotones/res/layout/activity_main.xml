@@ -13,32 +13,32 @@
         android:id="@+id/btN"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:translationX="50dp"
-        android:translationY="50dp"
+        android:translationX="150dp"
+        android:translationY="105dp"
         style="@style/botonN"
         android:onClick="norte"/>
     <com.example.brujulabotones.MiBoton
         android:id="@+id/btS"
         android:layout_width="20dp"
         android:layout_height="20dp"
-		android:translationX="100dp"
-        android:translationY="50dp"
+		android:translationX="150dp"
+        android:translationY="360dp"
         style="@style/botonS"
         android:onClick="sur"/>
     <com.example.brujulabotones.MiBoton
         android:id="@+id/btE"
         android:layout_width="20dp"
         android:layout_height="20dp"
-		android:translationX="50dp"
-        android:translationY="150dp"
+		android:translationX="278dp"
+        android:translationY="220dp"
         style="@style/botonE"
         android:onClick="este"/>
     <com.example.brujulabotones.MiBoton
         android:id="@+id/btO"
         android:layout_width="20dp"
         android:layout_height="20dp"
-		android:translationX="200dp"
-        android:translationY="250dp"
+		android:translationX="25dp"
+        android:translationY="220dp"
         style="@style/botonO"
         android:onClick="oeste"/>
 
